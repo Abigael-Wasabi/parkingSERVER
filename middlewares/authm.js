@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const secretKey ="emergencyKit"; 
 
 const authenticateUser = (req, res, next) => {
-  const token = req.headers.authorization.replace('Bearer', '') || req.cookies.token;
+  const token = req.headers.authorization.replace('Bearer ', '') || req.cookies.token;
 
   if (!token) {
     return res.status(401).json({ message: 'Unauthorized: No token provided' });

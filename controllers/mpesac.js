@@ -15,9 +15,9 @@ const createToken = async (req, res, next) => {
         },
       }
     )
-    .then((data) => {
+    .then((data) => { 
       token = data.data.access_token;
-      console.log(data.data);
+      console.log(data.data); 
       next();
     })
     .catch((err) => {
@@ -77,6 +77,11 @@ const postStk = async (req, res) => {
   };
     
 module.exports = { createToken, postStk };
+
+
+
+
+
 
 
 
