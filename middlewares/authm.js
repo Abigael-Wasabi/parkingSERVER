@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const secretKey ="emergencyKit"; 
+require('dotenv').config();
+const secretKey = process.env.SECRET_KEY; 
 
 const authenticateUser = (req, res, next) => {
   const token = req.headers.authorization.replace('Bearer ', '') || req.cookies.token;
@@ -7,16 +8,6 @@ const authenticateUser = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: 'Unauthorized: No token provided' });
   }
-
-  // jwt.verify(token, secretKey, (err, decoded) => {
-  //   if (err) {
-  //     console.error('Token verification error:',err)
-  //     return res.status(401).json({ message: 'Unauthorized: Invalid token' });
-  //   }
-
-  //   req.user = decoded;
-  //   next(); 
-  // });
   try{
     const decoded = jwt.verify(token, secretKey);
     req.user = decoded;

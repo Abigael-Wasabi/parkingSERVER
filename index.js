@@ -9,21 +9,18 @@ const parkRoutes = require('./routes/parkr');
 const mpesaRoutes = require('./routes/mpesar');
 const adminRoutes = require('./routes/adminr');
 const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
-
 
 require('./models/car');
 require('./models/parkSlot');
 require('./models/user'); 
 
-
 //sync the DB after changes/eq=laravel seeders
 db.sync({alert:true});
 
-dotenv.config();  
+require('dotenv').config(); 
 const {authenticateUser} = require('./middlewares/authm');
 
-const app = express(); 
+const app = express(); //!app initialization
 
 //!
 const corsOptions = {
@@ -37,7 +34,6 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
- 
 // Routes
 app.use('/user', authRoutes);
 app.use('/book', bookRoutes);
@@ -59,7 +55,6 @@ db.authenticate()
   });
 
 
-//**check for errors in the path */
 app.use((req, res, next) => {
   const err = new Error("Not Found");
   err.status = 404;
@@ -80,9 +75,3 @@ app.use((err,req,res,next)=>{
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
-
-
-  // Synchronize Sequelize models with the database
-  // db.sync().then(() => {
-  //   console.log('Sequelize models synchronized with the database.');
-  // });

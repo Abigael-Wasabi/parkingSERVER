@@ -1,10 +1,8 @@
 const {Sequelize,DataTypes}= require('sequelize');
 const sequelize= require ('../config/db');
-const ParkingSlot = require('./parkSlot');
 
-
-const User = sequelize.define('User', {
-  userID: {
+const Admin = sequelize.define('Admin', {
+  adminID: {
     type: Sequelize.DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -27,6 +25,4 @@ const User = sequelize.define('User', {
   },
 });
 
-User.belongsTo(ParkingSlot,{foreignKey:'parkingSlotID'});
-
-module.exports = User;
+module.exports = Admin;

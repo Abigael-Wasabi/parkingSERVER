@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImZpcnN0bmFtZSI6IkFiaWdhZWwiLCJsYXN0bmFtZSI6Indhc2FiaSIsImVtYWlsIjoiYWJpd2FzYWJpMDNAZ21haWwuY29tIiwiaWF0IjoxNzAyMjg3MzUxLCJleHAiOjE3MDIyOTA5NTF9.1BeYvWFcv7gt-UBkjIGRJ0FHg83JlRedTRa6O7pUPgY";
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsImZpcnN0bmFtZSI6ImFiaWdhZWwiLCJsYXN0bmFtZSI6Indhc2FiaSIsImVtYWlsIjoiYWJpd2FzYWJpMDNAZ21haWwuY29tIiwiaWF0IjoxNzAzMjMxMzIyLCJleHAiOjE3MDMyNDkzMjJ9.We5RklPyftpdnIr17addscrxROYvAJvkFj7otB3boSo";
  
 
 const decoded = jwt.decode(token);

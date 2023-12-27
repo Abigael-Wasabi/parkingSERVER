@@ -4,13 +4,8 @@ const { enterParkingDetails, allocateRandomSlot, cancelReservation, checkAvailab
 
 //routes
 router.post('/enterParkingDetails', enterParkingDetails);//!working both FnB
-
 router.get('/allocateRandomSlot', allocateRandomSlot);//!working both FnB
-
-
 router.get('/checkAvailableSlots', checkAvailableSlots);//!working both FnB
-
-
 router.post('/cancelReservation', async (req, res) => {
     try{
         const {carID} = req.body;

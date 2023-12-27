@@ -12,13 +12,13 @@ const ParkingSlot = sequelize.define('ParkingSlot', {
     type: Sequelize.DataTypes.INTEGER,
     defaultValue: 1,
     allowNull: false,
-    validate: {
+    validate: { //!validation is a way to ensure that the data being entered into the database meets certain constraints.
       min: 1,
       max: 30
     }
   },
   parkingSlotStatus: {
-    type: Sequelize.DataTypes.STRING, 
+    type: Sequelize.DataTypes.STRING,  
     allowNull: false,
     defaultValue: 'vacant',
     validate: {

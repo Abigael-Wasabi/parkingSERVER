@@ -16,23 +16,23 @@ const calcParkingFee = (arrivalTime, departureTime) => {
   const parkingHours = departureHour - arrivalHour;
 
   if (parkingHours >= 1 && parkingHours <= 3) {
-    return 50;
-  } else if (parkingHours <= 5) {
     return 100;
-  } else if (parkingHours <= 7) {
+  } else if (parkingHours <= 5) {
     return 200;
+  } else if (parkingHours <= 7) {
+    return 350;
   } else if (parkingHours <= 9) {
-    return 300; 
+    return 450; 
   } else if (parkingHours <= 11) {
-    return 400;
+    return 550;
   } else if (parkingHours <= 13) {
-    return 500;
+    return 650;
   } else if (parkingHours <= 15) {
-    return 600;
+    return 750;
   } else if (parkingHours <= 17) {
-    return 700;
+    return 900;
   } else if (parkingHours <= 18) {
-    return 800;
+    return 1000;
   } else {
     return 0;
   }
@@ -62,7 +62,6 @@ const enterParkingDetails = async (req, res) => {
 
     availableSlot.parkingSlotStatus = 'active';
     await availableSlot.save();
-    const session = availableSlot.parkingSlotStatus;
 
     const parkingFee = calcParkingFee(arrivalTime, departureTime);  
     res.status(201).json({ message: 'Parking details entered successfully.', car, parkingFee });
@@ -119,7 +118,7 @@ const cancelReservation = async (req, res) => {
     if (!car) {
       return res.status(404).json({ message: 'Car not found' });
     }
-    const slot = await findById(car.parkingSlotID);
+    const slot = await findById(car.parkingSlotID); 
     if (slot) {
       slot.parkingSlotStatus = 'vacant';
       await slot.save();
