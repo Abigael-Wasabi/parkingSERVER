@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {getUsers, blockUser, adjustWorkingHours, managePayment, adminLogin,getSlots,getCars, adminSignUp } = require('../controllers/adminc');
-
+//endpoints
 router.get('/users', getUsers);
 router.get('/slots', getSlots);
 router.get('/cars', getCars);

@@ -7,7 +7,8 @@ const consumerKEY = process.env.CONSUMER_KEY;
 const createToken = async (req, res, next) => {
   const secret = secretKEY;
   const consumer = consumerKEY;
-  const auth = new Buffer.from(`${consumer}:${secret}).toString("base64"`);
+  const auth = `VmRRdDBRMnd3TUdKcHJxWk5pd0xzNVhWNWF4TlA4T2M6YWpDVEFzRGVZNmNDYXBxVw==`; 
+  // const auth = new Buffer.from(`${consumer}:${secret}).toString("base64"`);
   await axios
     .get(
       "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
@@ -29,11 +30,11 @@ const createToken = async (req, res, next) => {
 };
 
 const postStk = async (req, res) => {
-  const shortCode = 4119567;
+  const shortCode = 174379;
   const phone = req.body.phone.substring(1); 
   const amount = req.body.amount;
   const passkey =
-    "5c973b3b8967d889259776b058248347962926aea0943773301f482cb35db058";
+    "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
   const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
   const date = new Date();
   const timestamp =

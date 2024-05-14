@@ -10,7 +10,7 @@ const mpesaRoutes = require('./routes/mpesar');
 const adminRoutes = require('./routes/adminr');
 const bodyParser = require('body-parser');
 
-require('./models/car');
+require('./models/car'); 
 require('./models/parkSlot');
 require('./models/user'); 
 
@@ -34,7 +34,7 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Routes
+// Routes//paths
 app.use('/user', authRoutes);
 app.use('/book', bookRoutes);
 app.use('/park', parkRoutes);
