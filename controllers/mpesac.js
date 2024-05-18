@@ -27,10 +27,10 @@ const createToken = async (req, res, next) => {
       console.log(err);
       res.status(400).json(err.message);
     });
-};
+}; //!
 
 const postStk = async (req, res) => {
-  const shortCode = 174379;
+  const shortCode = 174379; //used as the paybill no or the till no
   const phone = req.body.phone.substring(1); 
   const amount = req.body.amount;
   const passkey =
